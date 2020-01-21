@@ -1,0 +1,12 @@
+api = "0.2"
+
+[buildpack]
+id = "projectriff/java-function-buildpack"
+name = "Riff Java Function Buildpack"
+version = "0.0.1"
+
+[[stacks]]
+id = "heroku-18"
+
+[[stacks]]
+id = "io.buildpacks.stacks.bionic"

@@ -1,0 +1,12 @@
+#!/bin/sh
+
+if [ -f "$(pwd)/package.json" ]; then
+  echo "Node detected"
+  cat << EOF > "$2"
+  [[provides]]
+  name = "node"
+EOF
+else
+  exit 100
+fi
+

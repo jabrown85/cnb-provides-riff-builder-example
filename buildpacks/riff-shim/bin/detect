@@ -1,0 +1,38 @@
+#!/bin/sh
+
+# if RIFF=<something>
+# we could check for a riff.toml instead
+if [ -z "$RIFF" ]; then
+  # not a riff function, fail detect
+  exit 100
+else
+  # riff function!
+  # require a set of supported buildpacks
+cat << EOF > "$2"
+  [[requires]]
+  name = "node"
+
+  [[requires]]
+  name = "node_modules"
+
+  [[requires]]
+  name = "riff-node-function"
+
+  # it might be kind of neat to export riff-specific values in metadata
+  # so that the buildpack could make different decisions (like operating on sub directory)
+  [requires.metadata]
+  function_location = "/workspace/function-test"
+
+  [[or]]
+
+  [[or.requires]]
+  name = "java"
+
+  [[or.requires]]
+  name = "riff-java-function"
+
+  # or using a jar file directly instead of /workspace/ as the SPRING_CLOUD_FUNCTION_LOCATION
+  [or.requires.metadata]
+  function_location = "/workspace/target/my.jar"
+EOF
+fi

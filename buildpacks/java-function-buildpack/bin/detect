@@ -1,0 +1,8 @@
+#!/bin/sh
+
+cat << EOF > "$2"
+  [[provides]]
+  name = "riff-java-function"
+EOF
+
+exit 0

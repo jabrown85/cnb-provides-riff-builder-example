@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+echo "Building Riff Java Function"
+
+echo "Contributing Riff Layer"
+echo "FOUND $(cat $3 | grep 'function_location')"

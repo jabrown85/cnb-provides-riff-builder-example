@@ -1,0 +1,59 @@
+[stack]
+id = "heroku-18"
+build-image = "heroku/pack:18-build"
+run-image = "heroku/pack:18"
+
+[lifecycle]
+version = "0.4.0"
+
+[[buildpacks]]
+  id = "vendor/node"
+  uri = "buildpacks/node"
+
+[[buildpacks]]
+  id = "vendor/npm"
+  uri = "buildpacks/npm"
+
+[[buildpacks]]
+  id = "vendor/java"
+  uri = "buildpacks/java"
+
+[[buildpacks]]
+  id = "projectriff/java-function-buildpack"
+  uri = "buildpacks/java-function-buildpack"
+
+[[buildpacks]]
+  id = "projectriff/node-function-buildpack"
+  uri = "buildpacks/node-function-buildpack"
+
+[[buildpacks]]
+  id = "vendor/riff-shim"
+  uri = "buildpacks/riff-shim"
+
+[[order]]
+  # functions
+  [[order.group]]
+    id = "vendor/node"
+    optional = true
+
+  [[order.group]]
+    id = "vendor/npm"
+    optional = true
+
+  [[order.group]]
+    id = "vendor/java"
+    optional = true
+
+  [[order.group]]
+    id = "projectriff/node-function-buildpack"
+    optional = true
+
+  [[order.group]]
+    id = "projectriff/java-function-buildpack"
+    optional = true
+
+  [[order.group]]
+    id = "vendor/riff-shim"
+    optional = true
+
+

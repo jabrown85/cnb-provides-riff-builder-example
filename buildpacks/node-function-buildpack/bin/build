@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+echo "Building Riff Node Function"
+
+echo "Contributing Riff Layer"
+echo "FOUND $(cat $3 | grep 'function_location')"

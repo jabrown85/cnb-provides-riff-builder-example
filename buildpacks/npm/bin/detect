@@ -1,0 +1,15 @@
+#!/bin/sh
+
+if [ -f "$(pwd)/package.json" ]; then
+  echo "NPM detected"
+  cat << EOF > "$2"
+  [[provides]]
+  name = "node_modules"
+
+  [[requires]]
+  name = "node"
+EOF
+else
+  exit 100
+fi
+

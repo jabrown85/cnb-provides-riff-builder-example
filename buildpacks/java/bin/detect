@@ -1,0 +1,13 @@
+#!/bin/sh
+
+if [ -f "$(pwd)/pom.xml" ]; then
+  echo "Java detected"
+  cat << EOF > "$2"
+  [[provides]]
+  name = "java"
+EOF
+else
+  exit 100
+fi
+
+

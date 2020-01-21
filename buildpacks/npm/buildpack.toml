@@ -1,0 +1,12 @@
+api = "0.2"
+
+[buildpack]
+id = "vendor/npm"
+name = "NPM Buildpack"
+version = "0.0.1"
+
+[[stacks]]
+id = "heroku-18"
+
+[[stacks]]
+id = "io.buildpacks.stacks.bionic"
